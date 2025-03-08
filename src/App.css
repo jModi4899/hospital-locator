@@ -1,27 +1,122 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #7BD3EA;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(5px + 2vmin);
+  color: #FBFBFB;
+}
+
+.nhHeading{
+  font-size: calc(20px + 2vmin);
+}
+
+.hList{
+   padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border: 2px solid #FBFBFB; /* Add a border around each item */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  margin-bottom: 10px; /* Add spacing between items */
+  background-color: #ffffff; /* Optional: Add a background color */
+  color: #000000;
+}
+
+/* Navbar.css */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #7bd3ea; /* Match the background color of your app */
+	padding: 1rem 2rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.navbar-brand .navbar-logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #fbfbfb; /* Match the text color of your app */
+	text-decoration: none;
+}
+
+.navbar-links {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-links li {
+	margin-left: 1.5rem;
+}
+
+.navbar-links .navbar-link {
+	color: #fbfbfb; /* Match the text color of your app */
+	text-decoration: none;
+	font-size: 1rem;
+	transition: color 0.3s ease;
+}
+
+.navbar-links .navbar-link:hover {
+	color: #61dafb; /* Add a hover effect */
+}
+
+.navbar-toggle {
+	display: none; /* Hide the toggle button by default */
+	cursor: pointer;
+}
+
+.navbar-toggle-icon {
+	display: block;
+	width: 25px;
+	height: 3px;
+	background-color: #fbfbfb; /* Match the text color of your app */
+	position: relative;
+}
+
+.navbar-toggle-icon::before,
+.navbar-toggle-icon::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #fbfbfb; /* Match the text color of your app */
+	transition: all 0.3s ease;
+}
+
+.navbar-toggle-icon::before {
+	top: -8px;
+}
+
+.navbar-toggle-icon::after {
+	top: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.navbar-links {
+		display: none; /* Hide the links on smaller screens */
+		flex-direction: column;
+		width: 100%;
+		background-color: #7bd3ea; /* Match the background color of your app */
+		position: absolute;
+		top: 60px;
+		left: 0;
+	}
+
+	.navbar-links.active {
+		display: flex; /* Show the links when active */
+	}
+
+	.navbar-links li {
+		margin: 1rem 0;
+		text-align: center;
+	}
+
+	.navbar-toggle {
+		display: block; /* Show the toggle button on smaller screens */
+	}
 }
 
 .App-link {
