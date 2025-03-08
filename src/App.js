@@ -1,16 +1,15 @@
 import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Hospital from "./Components/Hospital"
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route
-					path="/hospital_info"
+					path="/"
 					element={
 						<div className="App">
-							<Hospital />
+							<h1>Under Construction</h1>
 						</div>
 					}
 					title="Hospital Information"></Route>
