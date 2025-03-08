@@ -31,6 +31,8 @@ import Signup from "./Signup";
 import Login from "./Login";
 import HealthForm from "./HealthForm";
 import Dashboard from "./Dashboard";
+import HomePage from "./HomePage"
+import Navbar from "./Components/Navbar"
 
 function App() {
   return (
