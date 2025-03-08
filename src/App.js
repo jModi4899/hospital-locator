@@ -1,15 +1,21 @@
-import logo from './logo.svg';
-import HomePage from './HomePage';
-import './App.css';
-import PreCheckInForm from './PreCheckInForm';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Signup from "./Signup";
+import Login from "./Login";
+import HealthForm from "./HealthForm";
+import Dashboard from "./Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <PreCheckInForm></PreCheckInForm>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/health-form" element={<HealthForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
