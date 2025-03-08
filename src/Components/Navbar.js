@@ -32,8 +32,8 @@ export default function Navbar() {
 					</a>
 				</li>
 				<li>
-					<a href="/contact" className="navbar-link">
-						Contact
+					<a href="/login" className="navbar-link">
+						Login
 					</a>
 				</li>
 			</ul>

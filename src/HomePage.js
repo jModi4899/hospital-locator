@@ -10,7 +10,7 @@ import HospitalPreview from "./Components/HospitalPreview"
 
 const containerStyle = {
 	width: "85vw",
-	height: "97vh",
+	height: "87vh",
 }
 
 function HomePage() {
