@@ -10,7 +10,7 @@ import HospitalPreview from "./Components/HospitalPreview"
 
 const containerStyle = {
 	width: "85vw",
-	height: "85vh",
+	height: "97vh",
 }
 
 function HomePage() {
@@ -61,7 +61,7 @@ function HomePage() {
 			const service = new window.google.maps.places.PlacesService(map)
 			const request = {
 				location: latLng,
-				radius: 30000, // Search within 5 km
+				radius: 10000, // Search within 10 km
 				types: ["hospital"], //keyword:'hospitals',.
 				openNow: true,
 				keyword: "emergency",
@@ -92,7 +92,7 @@ function HomePage() {
 				}
 			})
 		}
-	}, [currentPosition, map])
+	}, [currentPosition, map, hasSearched])
 
 	const calculateDistances = (origin, hospitals) => {
 		const service = new window.google.maps.DistanceMatrixService()
