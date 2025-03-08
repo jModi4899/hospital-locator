@@ -58,7 +58,7 @@ function HomePage(){
         const service = new window.google.maps.places.PlacesService(map);
         const request = {
           location: latLng,
-          radius: 30000, // Search within 5 km
+          radius: 10000, // Search within 5 km
           types: ['hospital'],//keyword:'hospitals',.
           openNow: true,
           keyword: 'emergency'
@@ -67,9 +67,24 @@ function HomePage(){
             if(curstatus===window.google.maps.places.PlacesServiceStatus.OK && results){
                 //const hospitalsData= {...place};
                 results.forEach(place => {
-                    setHospitals(prev=>[...prev,place])    
+                    // Check that place_id exists before fetching extra data
+                    if (place.place_id) {
+                        console.log(place.place_id)
+                      fetch(`http://localhost:5000/api/getHospitalInfo?place_id=${place.place_id}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log("extradata: "+JSON.stringify(data));
+                          const hospitalData = { ...place, extraInfo: data.error ? null : data };
+                          setHospitals(prev => [...prev, hospitalData]);
+                        })
+                        .catch(error => {
+                          console.error('Error fetching hospital info:', error);
+                          // Even if the backend call fails, add the hospital without extra info
+                          setHospitals(prev => [...prev, place]);
+                        });
+                    }
                 });
-                calculateDistances(currentPosition,results);
+                calculateDistances(currentPosition,hospitals);
                 const bounds = new window.google.maps.LatLngBounds();
                 bounds.extend(latLng)
                 results.forEach((hospital) => {
@@ -90,6 +105,7 @@ function HomePage(){
   },[currentPosition,map])
 
     const calculateDistances = (origin, hospitals) => {
+        console.log("in the Distance calculation Function")
         const service = new window.google.maps.DistanceMatrixService();
         const destinations = hospitals.map((hospital) => hospital.geometry.location);
     
@@ -105,6 +121,8 @@ function HomePage(){
                 ...hospital,
                 distance: response.rows[0].elements[index].distance.text, // Distance in km/miles
             }));
+            // setHospitals(prev=>[...prev,updatedHospitals]);
+            console.log("updatedHospitals");
             setHospitals(updatedHospitals);
             }
         });
@@ -125,6 +143,18 @@ function HomePage(){
               <strong>{hospital.name}</strong>
               <p>{hospital.vicinity}</p>
               {hospital.distance && <p><b>Distance:</b> {hospital.distance}</p>}
+              {hospital.extraInfo ? (
+              <div>
+                <p>
+                  Estimated Wait Time: {hospital.extraInfo.avg_wait_time} minutes
+                </p>
+                {/* <p>Queued Patients: {hospital.extraInfo.queued_patients}</p> */}
+                {/* <p>Wait Time per Patient: {hospital.extraInfo.avg_wait_time} minutes</p> */}
+              </div>
+            ) : (
+              <p>No extra info available</p>
+            )}
+
             </li>
           ))}
         </ul>
@@ -165,10 +195,10 @@ function HomePage(){
             {selectedHospital.extraInfo ? (
               <div>
                 <p>
-                  Estimated Wait Time: {selectedHospital.extraInfo.estimated_time} minutes
+                  Estimated Wait Time: {selectedHospital.extraInfo.avg_wait_time} minutes
                 </p>
-                <p>Queued Patients: {selectedHospital.extraInfo.queued_patients}</p>
-                <p>Time per Patient: {selectedHospital.extraInfo.time_per_patient} minutes</p>
+                {/* <p>Queued Patients: {selectedHospital.extraInfo.queued_patients}</p> */}
+                {/* <p>Wait Time per Patient: {selectedHospital.extraInfo.avg_wait_time} minutes</p> */}
               </div>
             ) : (
               <p>No extra info available</p>
