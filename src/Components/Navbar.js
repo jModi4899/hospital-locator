@@ -27,11 +27,6 @@ export default function Navbar() {
 					</a>
 				</li>
 				<li>
-					<a href="/pre-checkin" className="navbar-link">
-						Pre Checkin
-					</a>
-				</li>
-				<li>
 					<a href="/login" className="navbar-link">
 						Login
 					</a>

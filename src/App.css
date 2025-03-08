@@ -93,6 +93,159 @@
 	top: 8px;
 }
 
+.login-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-color: #7bd3ea;
+	color: #fbfbfb;
+	padding: 20px;
+}
+
+.login-form {
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+	color: #000000;
+}
+
+.form-group input {
+	width: 90%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.password-input {
+	position: relative;
+}
+
+.password-input input {
+	padding-right: 60px; /* Space for the toggle button */
+}
+
+.toggle-password {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	color: #61dafb;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.login-button {
+	width: 100%;
+	padding: 10px;
+	background-color: #61dafb;
+	color: #ffffff;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.login-button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+.login-button:hover:not(:disabled) {
+	background-color: #4fa3d1;
+}
+
+.error-message {
+	color: #ff6b6b;
+	margin-bottom: 15px;
+}
+
+.signup-link {
+	margin-top: 15px;
+	color: #000000;
+}
+
+.signup-link a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.signup-link a:hover {
+	text-decoration: underline;
+}
+
+/* App.css */
+.dashboard-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-color: #7bd3ea;
+	color: #fbfbfb;
+	padding: 20px;
+}
+
+.dashboard-info {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+	width: 100%;
+	max-width: 800px;
+}
+
+.info-card {
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 350px;
+	color: #000000;
+}
+
+.info-card h3 {
+	margin-top: 0;
+	color: #61dafb;
+}
+
+.info-card p {
+	margin: 10px 0;
+}
+
+.logout-button {
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: #ff6b6b;
+	color: #ffffff;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+	background-color: #ff4c4c;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
 	.navbar-links {

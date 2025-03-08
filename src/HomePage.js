@@ -7,6 +7,7 @@ import {
 	useJsApiLoader,
 } from "@react-google-maps/api"
 import HospitalPreview from "./Components/HospitalPreview" // Import the new component
+import { useNavigate } from "react-router-dom" // Import useNavigate
 
 const containerStyle = {
 	width: "85vw",
@@ -19,6 +20,7 @@ function HomePage() {
 	const [hospitals, setHospitals] = useState([])
 	const [selectedHospital, setSelectedHospital] = useState(null)
 	const [hasSearched, setHasSearched] = useState(false)
+	const navigate = useNavigate() // Initialize useNavigate
 
 	const { isLoaded, loadError } = useJsApiLoader({
 		googleMapsApiKey: "AIzaSyAELYPulYaAk7gYh_yM-Gzf2Zr_s7hYhAE",
@@ -129,6 +131,11 @@ function HomePage() {
 		)
 	}
 
+	// Function to handle Pre-Checkin button click
+	const handlePreCheckin = () => {
+		navigate("/pre-checkin") // Redirect to the pre-checkin route
+	}
+
 	if (loadError) return <div>Error loading maps</div>
 	if (!isLoaded || !currentPosition) return <div>Loading Map...</div>
 
@@ -191,7 +198,7 @@ function HomePage() {
 							) : (
 								<p>No extra info available</p>
 							)}
-							<button>Pre-Checkin</button>
+							<button onClick={handlePreCheckin}>Pre-Checkin</button>
 						</div>
 					</InfoWindow>
 				)}

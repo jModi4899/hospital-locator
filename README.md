@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# 🏥 Hospital Locator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Project Overview
 
-## Available Scripts
+Hospital Locator is a web application that helps users find nearby hospitals, sign up/login with authentication, and manage their health records.
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 🗺️ **Google Maps API Integration** – Shows nearby hospitals.
+- 🔐 **User Authentication** – Sign up, login, and logout with Firebase Authentication.
+- 🏥 **Health Form** – Users can enter their medical details (name, age, health card number, previous medical history, injuries, etc.).
+- 📄 **Dashboard** – Users can view their health details.
+- 📦 **MongoDB (Optional)** – Future support for storing user data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend:** React.js, Firebase, Google Maps API
+- **Backend:** Firebase Firestore (Optional: Express.js + MongoDB)
+- **Authentication:** Firebase Authentication
+- **Version Control:** Git & GitHub
 
-### `npm test`
+## 📑 Installation & Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1️⃣ **Clone the Repository**
 
-### `npm run build`
+```sh
+git clone https://github.com/jModi4899/hospital-locator.git
+cd hospital-locator
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2️⃣ **Install Dependencies**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3️⃣ **Set Up Firebase**
 
-### `npm run eject`
+1. Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+2. Enable Firestore Database and Authentication.
+3. Get Firebase Config from `Project Settings` and update `firebaseConfig.js`:
+   ```js
+   const firebaseConfig = {
+     apiKey: "YOUR_API_KEY",
+     authDomain: "YOUR_AUTH_DOMAIN",
+     projectId: "YOUR_PROJECT_ID",
+     storageBucket: "YOUR_STORAGE_BUCKET",
+     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+     appId: "YOUR_APP_ID",
+   };
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 4️⃣ **Start the Development Server**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The app will run at `http://localhost:3000`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📌 How to Use
 
-## Learn More
+1. **Sign Up/Login** – Create an account or log in.
+2. **Fill Health Form** – Enter personal health details.
+3. **View Nearby Hospitals** – Hospitals are displayed on the map.
+4. **Access Dashboard** – View and manage your health details.
+5. **Logout** – Securely log out of the system.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠️ Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Fork the Repository**
+2. **Create a Feature Branch** (`git checkout -b feature-name`)
+3. **Commit Your Changes** (`git commit -m "Added new feature"`)
+4. **Push to GitHub** (`git push origin feature-name`)
+5. **Open a Pull Request**
 
-### Code Splitting
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is open-source and available under the **MIT License**.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🚀 **Developed by [Jimit Modi](https://github.com/jModi4899)** – Happy Coding! 🎉
